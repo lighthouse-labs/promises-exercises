@@ -2,7 +2,8 @@
 const assert = require('assert');
 const {
   makePromiseResolveWith3,
-  makePromiseRejectWithBoo
+  makePromiseRejectWithBoo,
+  makePromiseWithConstructor
 } = require('../answers/warmup');
 
 describe('Promise.resolve(val)', () => {
@@ -24,7 +25,12 @@ describe('Promise.reject(err)', () => {
   });
 });
 describe('Promise constructor "new Promise((resolve, reject) => void)', () => {
-  it('creates a promise that can resolve or reject');
+  it('creates a promise that can resolve or reject', () => {
+    const shouldResolve = makePromiseWithConstructor(true);
+    const shouldReject = makePromiseWithConstructor(false)
+      .then(() => {assert.fail('This should have rejected');},() => {});
+    return Promise.all([shouldResolve, shouldReject]);
+  });
   it('can be used to turn a callback method into a promise');
   it('can be combined with setTimeout to create a delayed promise');
 });

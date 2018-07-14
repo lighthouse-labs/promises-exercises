@@ -29,7 +29,15 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 */
 
+function makePromiseWithConstructor(itShouldResolve){
+  return new Promise((resolve, reject) => {
+    /* If itShouldResolve is true, call resolve */
+    /* If itShouldResolve is false, call reject */
+  });
+}
+
 module.exports = {
   makePromiseResolveWith3,
-  makePromiseRejectWithBoo
+  makePromiseRejectWithBoo,
+  makePromiseWithConstructor,
 };
