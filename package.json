@@ -1,0 +1,27 @@
+{
+  "name": "promises-exercises",
+  "version": "1.0.0",
+  "description": "Exercises for learning promises",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lighthouse-labs/promises-exercises.git"
+  },
+  "keywords": [
+    "promises",
+    "js",
+    "async"
+  ],
+  "author": "Joel Shinness <me@joelshinness.com> (http://joelshinness.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lighthouse-labs/promises-exercises/issues"
+  },
+  "homepage": "https://github.com/lighthouse-labs/promises-exercises#readme",
+  "dependencies": {
+    "mocha": "^5.2.0"
+  }
+}
