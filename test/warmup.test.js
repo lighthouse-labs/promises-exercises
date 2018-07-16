@@ -30,6 +30,7 @@ describe('Promise.reject: (err:T) => Promise<,T>', () => {
     });
   });
 });
+
 describe('Promise constructor "new Promise((resolve, reject) => void) => Promise', () => {
   describe('#makePromiseWithConstructor: (boolean) => Promise<undefined,undefined>', () => {
     it('creates a promise that will resolve', () => {
