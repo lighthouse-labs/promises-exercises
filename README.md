@@ -9,11 +9,14 @@ Set of exercises in using JS promises for handling asynchronous operations.
 
 ## Using
 
-You can fill in the tests in the answer directory.
-* Run `npm test` to run the whole test suite
-* Run `npm start` to watch the whole test suite.
+For these exercises, you only need to go the `/answers` directory and implement the functions as directed.  Once correctly implemented, all the test suites should pass.  
+
+* Run `npm test` to run all the test suites.
+* Run `npm start` to watch all the test suites.
+
+Or, you can run only the test suites for any exercise using the commands below.
 
 ## Outline
 
 `npm run warmup` - Create promises with Promise.resolve, Promise.reject, and the Promise constructor.
-
+`npm run and-then` - Coming Soon!
