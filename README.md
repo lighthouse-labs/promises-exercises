@@ -19,4 +19,4 @@ Or, you can run only the test suites for any exercise using the commands below.
 ## Outline
 
 `npm run warmup` - Create promises with Promise.resolve, Promise.reject, and the Promise constructor.
-`npm run and-then` - Coming Soon!
+`npm run and-then` - Use `.then(cb)` and `.catch(cb)` to consume the output of promises, as well as to transform and chain async processes.
