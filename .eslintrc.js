@@ -10,7 +10,7 @@ module.exports = {
     "rules": {
         "comma-dangle": [
             "error",
-            "always"
+            "always-multiline"
         ],
         "indent": [
             "error",
