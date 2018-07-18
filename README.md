@@ -19,4 +19,5 @@ Or, you can run only the test suites for any exercise using the commands below.
 ## Outline
 
 `npm run warmup` - Create promises with Promise.resolve, Promise.reject, and the Promise constructor.
+`npm run callbacks` - Turn callback-centric functions into promise-centric functions.
 `npm run and-then` - Coming Soon!

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha",
     "start": "./node_modules/.bin/mocha --watch",
-    "warmup": "./node_modules/.bin/mocha ./test/warmup.test.js"
+    "warmup": "npm test -- ./test/warmup.test.js",
+    "callbacks": "npm test -- ./test/callbacks.test.js"
   },
   "repository": {
     "type": "git",
