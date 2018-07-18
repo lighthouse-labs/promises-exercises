@@ -84,7 +84,57 @@ function passwordCheckerPrms(email, password){
   });
 }
 
+/**
+ * 
+ * EXERCISE 2:
+ * 
+ * Now, we're going to make a more general version of this pattern.  Let's say that we have a function that takes in a set of parameters and returns something.  In the case of "passwordChecker", those params are an email and a password.  The three versions look like this:
+ * 
+ * SYNC (email: string, password:string) => User
+ * CALLBACK (email: string, password:string, cb: (Error, User) => void) => void
+ * PROMISE (email: string, password:string) => Promise<User, Error>
+ * 
+ * If we turned those params into their rest version, we can describe a pattern
+ * 
+ * SYNC (...params) => Value
+ * CALLBACK (...params, cb: (Error, Value) => void) => void
+ * PROMISE (...params) => Promise<Value, Error>
+ * 
+ * In this example, we are going to make a general purpose function.  It accepts a function that would accept some params and a node-style callback, and it accepts all the params it needs, and returns a function.
+ * 
+ * For instance, if we called:
+ * 
+ * makePromiseFromFunctionWithCallback(passwordCheckerCb, "jeff@jeff.jeff", "jeff")
+ * 
+ * It would return with a Promise that resolved with the value or rejected with an error based on the success or failure of calling passwordCheckerCb("jeff@jeff.jeff", "jeff").  In other words, it would be identical to calling passwordCheckerPrms("jeff@jeff.jeff", "jeff")
+ * 
+ * @param {callbackStyleAsyncFunction} fn
+ * @param {*} fnParams 
+ * @return {Promise<any, any>}
+ */
+function makePromiseFromFunctionWithCallback(fn, ...fnParams){
+  /* 
+  Return a promise that 
+    - calls fn with the fnParams and a callback (like fn(...fnParams, cb))
+    - resolves with a value if the callback succeeds
+    - rejects with an error if the callback fails
+  */
+}
+
+/**
+ * @callback callbackStyleAsyncFunction
+ * @param {*[]} fnParams
+ * @param {nodeStyleCallback}
+ */
+
+/**
+  * @callback nodeStyleCallback
+  * @param {*} Error
+  * @param {*} Value
+  */
+
 module.exports = {
   passwordCheckerCb,
   passwordCheckerPrms,
+  makePromiseFromFunctionWithCallback,
 };

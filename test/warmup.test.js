@@ -5,7 +5,6 @@ const {
   makePromiseRejectWithBoo,
   makePromiseWithConstructor,
   makeDelayPromise,
-  makePromiseFromFunctionWithCallback,
 } = require('../answers/warmup');
 describe('Promise.resolve: (val:T) => Promise<T>', () => {
   describe('#makePromiseResolveWith3:() => Promise<number>', () => {
@@ -59,41 +58,6 @@ describe('Promise constructor "new Promise((resolve, reject) => void) => Promise
           const diff = new Date() - start;
           assert(diff >= 1000, 'Happened too early');
           assert(diff < 1050, 'Took too long');
-        });
-    });
-  });
-  describe('#makePromiseFromFunctionWithCallback:(fn:([...params,] cb: (err:E, val:T) => void)) => void)=>([...params]) => Promise<T,E>', () => {
-    it('turns a resolving callback function into a resolving promise', () => {
-      function resolver(cb){
-        cb(null, 'Hello');
-      }
-      return makePromiseFromFunctionWithCallback(resolver)
-        .then(val => {
-          assert.equal(val, 'Hello');
-        });
-    });
-    it('turns a rejecting callback function into a rejecting promise', () => {
-      function rejector(cb){
-        cb('Boo!');
-      }
-      return makePromiseFromFunctionWithCallback(rejector)
-        .then(() => {
-          assert.fail('This should have rejected');
-        }, (err) => {
-          assert.equal(err, 'Boo!');
-        });
-    });
-
-    it('takes params in the returning function', () => {
-      function delayedResolver(firstVal, secondVal, cb){
-        setTimeout(() => {
-          cb(null, firstVal + ' ' + secondVal);
-        }, 500);
-      }
-
-      return makePromiseFromFunctionWithCallback(delayedResolver, 'Hello', 'World')
-        .then((val) => {
-          assert.equal(val, 'Hello World');
         });
     });
   });
