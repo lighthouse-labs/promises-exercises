@@ -5,6 +5,7 @@ const {
   consumePromise,
   mapPromise,
   squarePromise,
+  squarePromiseOrZero,
 } = require('../answers/and-then');
 
 describe('Promise.prototype.then() && Promise.prototype.catch()', () => {
@@ -91,6 +92,34 @@ describe('Promise.prototype.then() && Promise.prototype.catch()', () => {
           assert.fail('This should not resolve!  It resolved with: ' + val);
         }, (err) => {
           assert.equal(err, 9);
+        });
+    });
+  });
+  describe('#squarePromiseOrZero(promise) => Promise', () => {
+    it('squares the resolution value of the promise', () => {
+      return squarePromiseOrZero(Promise.resolve(5))
+        .then((val) => {
+          assert.equal(val, 25);
+        });
+    });
+    it('converts a numeric string to a number and squares it', () => {
+      return squarePromiseOrZero(Promise.resolve('11'))
+        .then((val) => {
+          assert.equal(val, 121);
+        });
+    });
+    
+    it('resolves with 0 if the resolution value is not numeric', () => {
+      return squarePromiseOrZero(Promise.resolve('abc'))
+        .then((val) => {
+          assert.equal(val, 0);
+        });
+    });
+
+    it('rejects if the input promise rejects.', () => {
+      return squarePromiseOrZero(Promise.reject(9))
+        .then((val) => {
+          assert.equal(val, 0);
         });
     });
   });

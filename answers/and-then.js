@@ -84,11 +84,23 @@ function mapPromise(promise, transformer){
  */
 function squarePromise(numberPromise){
   return numberPromise
-    .then((numOrString) => {
-      /* IMPLEMENT ME! */
-    });
+    .then(/* IMPLEMENT ME! */);
 }
 
+/**
+ * EXERCISE 4
+ * 
+ * In the same way that we can use .then to transform a promise when it resolves, we can also use .catch to transform a promise when it rejects.  If we return a value from a .catch, we create a new promise that will resolve.  Likewise, if we throw an error in a .catch, the new promise will reject with that new error.
+ * 
+ * We're going to refactor the above promise so that it always resolves with the value 0.
+
+ * @param {Promise<number | string>} numberPromise 
+ * @returns {Promise<number>}
+ */
+function squarePromiseOrZero(promise){
+  return squarePromise(promise)
+    .catch(/* IMPLEMENT ME! */);
+}
 
 /**
  * @callback consumer
@@ -100,6 +112,7 @@ function squarePromise(numberPromise){
  */
 module.exports = {
   consumePromise,
-  squarePromise,
   mapPromise,
+  squarePromise,
+  squarePromiseOrZero,
 };
