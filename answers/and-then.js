@@ -1,5 +1,13 @@
 /**
- * 1) In this exercise, we will use then and catch for their most basic use: to consume the result of a successful async process, or to handle the error of a failed async process.  We will be given a promise, a consumer, and a handler.  Set it up so that, if the promise resolves, the consumer will be called with the result, and if the promise rejects, the handler will be called with the error.
+ * 
+ * The following exercises will focus on using the .then and .catch methods of promises.  These are very important methods, not only for consuming values or handling errors, but also for transforming and combining promises.
+ * 
+ */
+/**
+ * 
+ * EXERCISE 1
+ * 
+ * In this exercise, we will use then and catch for their most basic use: to consume the result of a successful async process, or to handle the error of a failed async process.  We will be given a promise, a consumer, and a handler.  Set it up so that, if the promise resolves, the consumer will be called with the result, and if the promise rejects, the handler will be called with the error.
  * 
  * @param {Promise} promise 
  * @param {consumer} consumer 
@@ -8,6 +16,79 @@
 function consumePromise(promise, consumer, handler){
   /* IMPLEMENT ME! */
 }
+
+/**
+ * 
+ * EXERCISE 2
+ * 
+ * In this exercise, we'll create a function that can take in a promise and a transformer function and return a new transformed promise.
+ * 
+ * In the previous exercise, we used .then(cb) in an imperative way, responding to its resolution by triggering a side effect.  But what if we want to create a new promise based on that resolution, but one that changed the value somehow?
+ * 
+ * It's similar to arrays in this way: sometimes we use .then(cb) the way we would use .forEach(cb), which helps us perform some action, some side effect based on the value.  For instance:
+ * 
+ * const result = [2, 5, 3].forEach((num) => {
+ *   console.log(num);
+ * });
+ * 
+ * will print "2", "5", and "3" to the terminal, but result will be undefined.  We did some stuff, and nothing was returned.  Classic imperative code.
+ * 
+ * But what if we wanted a new array with all these number squared?  We could write the following, of course:
+ * 
+ * const squares = [];
+ * [2, 5, 3].forEach((num) => {
+ *   squares.push(num * num);
+ * });
+ * 
+ * But there's already a common array function that does just this: .map(cb), which lets us write that as a one-liner:
+ * 
+ * const squares = [2, 5, 3].map(num => num * num)
+ * 
+ * The squares array now contains [4, 25, 9].  But why discuss arrays?  Because promises are similar.  Sometimes, you want to perform a side effect when that resolves, but sometimes, you'd like that result to be formatted in some different way.
+ * 
+ * So, we're going to create a function that does just that to promises.  It's called mapPromise, it takes in a promise and a transformer callback, and returns a new promise that follows these rules:
+ * 
+ * - If the first promise rejects with an error, the new promise rejects with that error.
+ * - If the first promise resolves with a result, it calls the transformer with the value as an argument.
+ *   - If the transformer returns with a value, the new promise resolves with that value.
+ *   - If the transformer throws an error, the new promise rejects with that error.
+ * 
+ * 
+ * @param {*} promise 
+ * @param {*} transformer 
+ * @returns {Promise}
+ */
+function mapPromise(promise, transformer){
+  return new Promise((resolve, reject) => {
+    /* IMPLEMENT ME!! */
+  });
+}
+
+/**
+ * 
+ * EXERCISE 3
+ * 
+ * I have good news about the function above: it already exists!  In fact, you've been using it this whole time!  Its .then(cb)!
+ * 
+ * In the previous exercise, we used .then(cb) in an imperative way, performing some action on the resolved value, but delayed.  But we can also use .then(cb) declaratively, returning a new promise that will resolve with a transformed value.  
+ * 
+ * In this exercise, we'll be passing a promise that resolves with a number or a string.  We want to return with a promise such that:
+ * 
+ * If the input promise resolves with a number, the output promise resolves with the square of that number.
+ * If the input promise resolves with a string that we can turn into a number (like "1234"), the output promise resolves with the square of that number (1522756 in this example)
+ * If the input promise resolves with a string that we cannot turn into a number (like "asdf"), then we reject with a message like "Cannot convert 'asdf' to a number!"
+ * If the input promise rejects with an error, the output promise rejects with the same error
+ * 
+ * @param {Promise<number | string>} numberPromise 
+ * @returns {Promise<number>}
+ */
+function squarePromise(numberPromise){
+  return numberPromise
+    .then((numOrString) => {
+      /* IMPLEMENT ME! */
+    });
+}
+
 
 /**
  * @callback consumer
@@ -19,4 +100,6 @@ function consumePromise(promise, consumer, handler){
  */
 module.exports = {
   consumePromise,
+  squarePromise,
+  mapPromise,
 };
