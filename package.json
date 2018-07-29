@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha",
     "start": "./node_modules/.bin/mocha --watch",
-    "warmup": "npm test -- ./test/warmup.test.js",
+    "making-promises": "npm test -- ./test/making-promises.test.js",
     "and-then": "./node_modules/.bin/mocha ./test/and-then.test.js",
     "callbacks": "npm test -- ./test/callbacks.test.js"
   },

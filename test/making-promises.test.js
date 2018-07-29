@@ -5,7 +5,7 @@ const {
   makePromiseRejectWithBoo,
   makePromiseWithConstructor,
   makeDelayPromise,
-} = require('../answers/warmup');
+} = require('../answers/making-promises');
 describe('Promise.resolve: (val:T) => Promise<T>', () => {
   describe('#makePromiseResolveWith3:() => Promise<number>', () => {
     it('creates a resolving promise', () => {
