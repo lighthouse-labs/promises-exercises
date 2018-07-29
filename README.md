@@ -27,7 +27,8 @@ You are free to look at any of the tests for guidance, but don't change them.
 These exercises are all about learning the mechanisms that we can use to create, transform, and combine promises.
 
 `npm run making-promises` - Create promises with Promise.resolve, Promise.reject, and the Promise constructor.
-`npm run and-then` - Use `.then(cb)` and `.catch(cb)` to consume the output of promises, as well as to transform and chain async processes.
+`npm run consuming-promises` - Use `.then(cb)` and `.catch(cb)` to respond to a promise completing and do something with the result.
+`npm run transforming-promises` - Use `.then(cb)` and `.catch(cb)` to transform the results of async processes.
 `npm run chaining-promises` - Use `.then(cb)` and `.catch(cb)` to chain async processes.
 
 ### Promise Puzzles

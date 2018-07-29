@@ -1,25 +1,6 @@
 /**
  * 
- * The following exercises will focus on using the .then and .catch methods of promises.  These are very important methods, not only for consuming values or handling errors, but also for transforming and combining promises.
- * 
- */
-/**
- * 
  * EXERCISE 1
- * 
- * In this exercise, we will use then and catch for their most basic use: to consume the result of a successful async process, or to handle the error of a failed async process.  We will be given a promise, a consumer, and a handler.  Set it up so that, if the promise resolves, the consumer will be called with the result, and if the promise rejects, the handler will be called with the error.
- * 
- * @param {Promise} promise 
- * @param {consumer} consumer 
- * @param {handler} handler 
- */
-function consumePromise(promise, consumer, handler){
-  /* IMPLEMENT ME! */
-}
-
-/**
- * 
- * EXERCISE 2
  * 
  * In this exercise, we'll create a function that can take in a promise and a transformer function and return a new transformed promise.
  * 
@@ -66,7 +47,7 @@ function mapPromise(promise, transformer){
 
 /**
  * 
- * EXERCISE 3
+ * EXERCISE 2
  * 
  * I have good news about the function above: it already exists!  In fact, you've been using it this whole time!  Its .then(cb)!
  * 
@@ -88,7 +69,7 @@ function squarePromise(numberPromise){
 }
 
 /**
- * EXERCISE 4
+ * EXERCISE 3
  * 
  * In the same way that we can use .then to transform a promise when it resolves, we can also use .catch to transform a promise when it rejects.  If we return a value from a .catch, we create a new promise that will resolve.  Likewise, if we throw an error in a .catch, the new promise will reject with that new error.
  * 
@@ -103,7 +84,7 @@ function squarePromiseOrZero(promise){
 }
 
 /**
- * EXERCISE 5
+ * EXERCISE 4
  * 
  * One interesting feature of the .then(cb) function is that it can actually take in two callbacks, one for success and one for failure.  In most cases, running
  * 
@@ -142,7 +123,6 @@ function switcheroo(promise){
  */
 
 module.exports = {
-  consumePromise,
   mapPromise,
   squarePromise,
   squarePromiseOrZero,
