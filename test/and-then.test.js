@@ -6,6 +6,7 @@ const {
   mapPromise,
   squarePromise,
   squarePromiseOrZero,
+  switcheroo,
 } = require('../answers/and-then');
 
 describe('Promise.prototype.then() && Promise.prototype.catch()', () => {
@@ -120,6 +121,22 @@ describe('Promise.prototype.then() && Promise.prototype.catch()', () => {
       return squarePromiseOrZero(Promise.reject(9))
         .then((val) => {
           assert.equal(val, 0);
+        });
+    });
+  });
+  describe('#switcheroo(promise:Promsie) => Promise', () => {
+    it('rejects when the input promise resolves', () => {
+      return switcheroo(Promise.resolve(3))
+        .then((val) => {
+          assert.fail('This should not resolve!  It resolved with: ' + val);
+        }, (err) => {
+          assert.equal(err, 3);
+        });
+    });
+    it('resolves when the input promise rejects', () => {
+      return switcheroo(Promise.reject(4))
+        .then((val) => {
+          assert.equal(val, 4);
         });
     });
   });

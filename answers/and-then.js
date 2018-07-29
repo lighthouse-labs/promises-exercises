@@ -74,10 +74,10 @@ function mapPromise(promise, transformer){
  * 
  * In this exercise, we'll be passing a promise that resolves with a number or a string.  We want to return with a promise such that:
  * 
- * If the input promise resolves with a number, the output promise resolves with the square of that number.
- * If the input promise resolves with a string that we can turn into a number (like "1234"), the output promise resolves with the square of that number (1522756 in this example)
- * If the input promise resolves with a string that we cannot turn into a number (like "asdf"), then we reject with a message like "Cannot convert 'asdf' to a number!"
- * If the input promise rejects with an error, the output promise rejects with the same error
+ * - If the input promise resolves with a number, the output promise resolves with the square of that number.
+ * - If the input promise resolves with a string that we can turn into a number (like "1234"), the output promise resolves with the square of that number (1522756 in this example)
+ * - If the input promise resolves with a string that we cannot turn into a number (like "asdf"), then we reject with a message like "Cannot convert 'asdf' to a number!"
+ * - If the input promise rejects with an error, the output promise rejects with the same error
  * 
  * @param {Promise<number | string>} numberPromise 
  * @returns {Promise<number>}
@@ -103,16 +103,48 @@ function squarePromiseOrZero(promise){
 }
 
 /**
+ * EXERCISE 5
+ * 
+ * One interesting feature of the .then(cb) function is that it can actually take in two callbacks, one for success and one for failure.  In most cases, running
+ * 
+ * somePromise
+ *   .then(successCb)
+ *   .catch(failureCb)
+ * 
+ * is equivalent to 
+ * 
+ * somePromise
+ *   .then(successCb, failureCb)
+ * 
+ * But there's one noteworthy exception.  In the first code, the .then(cb) returns a new promise to which we attach the .catch.  That means that it's possible for the first promise to resolve, and the second to reject, which means that the catch could be catching failures from the first promise OR the second promise.  When we pass in the failureCb with the successCb, we guarantee that our failureCb is ONLY catching the rejection of the first promise.
+ * 
+ * We can examine this by making a function called "switcheroo".  It'll take in a promise and return a promise such that:
+ * 
+ * - If the input promise rejects with an error, the output promise will resolve with that error.
+ * - If the input promise resolves with a value, the output promise will reject with that value.
+ * 
+ * 
+ * @param {Promise} promise 
+ * @returns {Promise}
+ */
+function switcheroo(promise){
+  return promise.then(/* IMPLEMENT ME */);
+}
+
+/**
  * @callback consumer
  * @param {*} value
  */
+
 /**
  * @callback handler
  * @param {*} error
  */
+
 module.exports = {
   consumePromise,
   mapPromise,
   squarePromise,
   squarePromiseOrZero,
+  switcheroo,
 };
