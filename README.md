@@ -28,6 +28,7 @@ These exercises are all about learning the mechanisms that we can use to create,
 
 `npm run making-promises` - Create promises with Promise.resolve, Promise.reject, and the Promise constructor.
 `npm run and-then` - Use `.then(cb)` and `.catch(cb)` to consume the output of promises, as well as to transform and chain async processes.
+`npm run chaining-promises` - Use `.then(cb)` and `.catch(cb)` to chain async processes.
 
 ### Promise Puzzles
 

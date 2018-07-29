@@ -124,7 +124,7 @@ describe('Promise.prototype.then() && Promise.prototype.catch()', () => {
         });
     });
   });
-  describe('#switcheroo(promise:Promsie) => Promise', () => {
+  describe('#switcheroo(promise) => Promise', () => {
     it('rejects when the input promise resolves', () => {
       return switcheroo(Promise.resolve(3))
         .then((val) => {

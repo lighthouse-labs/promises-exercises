@@ -8,6 +8,7 @@
     "start": "./node_modules/.bin/mocha --watch",
     "making-promises": "npm test -- ./test/making-promises.test.js",
     "and-then": "./node_modules/.bin/mocha ./test/and-then.test.js",
+    "chaining-promises": "./node_modules/.bin/mocha ./test/chaining-promises.test.js",
     "callbacks": "npm test -- ./test/callbacks.test.js"
   },
   "repository": {
