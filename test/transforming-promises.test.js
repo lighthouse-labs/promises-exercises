@@ -1,41 +1,13 @@
 /* eslint-env mocha */
 const assert = require('assert');
-
 const {
-  consumePromise,
   mapPromise,
   squarePromise,
   squarePromiseOrZero,
   switcheroo,
-} = require('../answers/and-then');
+} = require('../answers/transforming-promises');
 
-describe('Promise.prototype.then() && Promise.prototype.catch()', () => {
-  describe('#consumePromise(promise, consumer, errorHandler) => void', () => {
-    it('calls the consumer on the resolve value of the promise', (done) => {
-      const resolvedPromise = Promise.resolve('Yay!');
-      function consumer(val){
-        assert.equal(val, 'Yay!');
-        done();
-      }
-      function handler(){
-        assert.fail('This should not have been called.');
-      }
-      
-      assert.equal(consumePromise(resolvedPromise, consumer, handler), undefined, 'Consume Promise should not return anything.');
-    });
-    it('calls the errorHandler on the rejection error of the promise', (done) => {
-      const rejectedPromise = Promise.reject('Boo!');
-      function consumer(){
-        assert.fail('This should not have been called.');
-      }
-      function handler(err){
-        assert.equal(err, 'Boo!');
-        done();
-      }
-      assert.equal(consumePromise(rejectedPromise, consumer, handler), undefined, 'Consume Promise should not return anything.');
-    });
-  });
-
+describe('Transforming Promises with .then(cb) and .catch(cb)', () => {
   describe('#mapPromise(promise, transformer) => Promise', () => {
     it('transforms a promises resolution value', () => {
       return mapPromise(Promise.resolve(3), (val) => {
@@ -124,7 +96,7 @@ describe('Promise.prototype.then() && Promise.prototype.catch()', () => {
         });
     });
   });
-  describe('#switcheroo(promise:Promsie) => Promise', () => {
+  describe('#switcheroo(promise) => Promise', () => {
     it('rejects when the input promise resolves', () => {
       return switcheroo(Promise.resolve(3))
         .then((val) => {
@@ -139,5 +111,4 @@ describe('Promise.prototype.then() && Promise.prototype.catch()', () => {
           assert.equal(val, 4);
         });
     });
-  });
-});
+  });});

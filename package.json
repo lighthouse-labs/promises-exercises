@@ -7,7 +7,9 @@
     "test": "./node_modules/.bin/mocha",
     "start": "./node_modules/.bin/mocha --watch",
     "making-promises": "npm test -- ./test/making-promises.test.js",
-    "and-then": "./node_modules/.bin/mocha ./test/and-then.test.js",
+    "consuming-promises": "npm test -- ./test/consuming-promises.test.js",
+    "transforming-promises": "npm test -- ./test/transforming-promises.test.js",
+    "chaining-promises": "npm test -- ./test/chaining-promises.test.js",
     "callbacks": "npm test -- ./test/callbacks.test.js"
   },
   "repository": {
