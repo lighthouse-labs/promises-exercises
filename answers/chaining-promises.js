@@ -35,7 +35,11 @@ function chainTwoAsyncProcesses(firstPromise, slowAsyncProcess){
   return firstPromise.then(/* IMPLEMENT ME! */);
 }
 
+function makeGetUserByIdWithOrganization(getUserById, getOrganizationById){
+}
+
 module.exports = {
   flatMapPromise,
   chainTwoAsyncProcesses,
+  makeGetUserByIdWithOrganization,
 };
