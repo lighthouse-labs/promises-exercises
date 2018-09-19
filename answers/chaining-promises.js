@@ -35,7 +35,54 @@ function chainTwoAsyncProcesses(firstPromise, slowAsyncProcess){
   return firstPromise.then(/* IMPLEMENT ME! */);
 }
 
+/**
+ * 
+ * EXERCISE 3
+ * 
+ * The most common point of this scenario is to chain two async processes, especially when the some result of the first one is needed before we can start the second.  This is a very common technique, and we're going to use it to implement a somewhat more "real-world" scenario.
+ * 
+ * Our situation is that we have two api calls, one that gets a user object by id, and one that gets an organization object by id.  The user object might look like this:
+ *  
+ *  {
+ *    id: 'u001', 
+ *    name: 'Mike', 
+ *    email: 'mike@mike.mike', 
+ *    organizationId: 'o001'
+ *  }
+ * 
+ * The organization object might look like this:
+ * 
+ *  {
+ *    id: 'o001', 
+ *    name: 'Research and Development'
+ *  }
+ * 
+ * We want to make a function that combines these two calls into one, making an object that looks like the following:
+ * 
+ *  {
+ *    id: 'u001',
+ *    name: 'Mike', 
+ *    email: 'mike@mike.mike', 
+ *    organizationId: 'o001'
+ *    organization: {
+ *      id: 'o001', 
+ *      name: 'Research and Development'
+ *    }
+ *  }
+ * 
+ * We can't get the organization object until we have the user object and the organization id.  That means that we have to request the user, wait until we have it, then request the organization, wait for it to return, and return a combined object.
+ * 
+ * It's also worth noting that the getUserById function will resolve with undefined if no user is found with that id.  Then we don't have to request the organization at all!
+ * 
+ * For this example, the test creates the getUserById and getOrganizationById functions, then passes them to a function that itself returns the function we want to build: one which takes in a userId and returns a combined object.
+ * 
+ * @param {function} getUserById 
+ * @param {function} getOrganizationById 
+ */
 function makeGetUserByIdWithOrganization(getUserById, getOrganizationById){
+  return function getUserByIdWithOrganization(userId){
+    /* IMPLEMENT ME! */
+  };
 }
 
 module.exports = {
