@@ -11,7 +11,7 @@ Set of exercises in using JS promises for handling asynchronous operations.
 
 For these exercises, there are a few folders, each corresponding to a step in the lesson. Each of them has a `README.md`, a `test.js`, and an `answers.js`.  Read the   README.md for further instructions, implement the methods in the `answers.js`, passing the tests in the `tests.js` file.  The answers has a 
 
-> Quick tip:  To run any of the exercises below in watch mode, add `-- --watch`, (e.g. `npm run making-promises -- --watch`)
+> Quick tip:  To run any of the exercises below in watch mode, add `-- --watch`, (e.g. `npm run 01-making-promises -- --watch`)
 
 You are free to look at any of the tests for guidance, but don't change them.
 

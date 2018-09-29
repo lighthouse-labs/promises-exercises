@@ -4,8 +4,6 @@
   "description": "Exercises for learning promises",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha",
-    "start": "./node_modules/.bin/mocha --watch",
     "01-making-promises": "npm test -- ./01-making-promises",
     "02-consuming-promises": "npm test -- ./02-consuming-promises",
     "03-transforming-promises": "npm test -- ./03-transforming-promises",
