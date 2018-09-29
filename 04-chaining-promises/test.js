@@ -5,7 +5,7 @@ const {
   flatMapPromise, 
   chainTwoAsyncProcesses,
   makeGetUserByIdWithOrganization,
-} = require('../answers/chaining-promises.js');
+} = require('./answers');
 
 describe('Chaining Promises with .then(cb) and .catch(cb)', () => {
   describe('#flatMapPromise(promise, asyncTransformer) => Promise', () => {

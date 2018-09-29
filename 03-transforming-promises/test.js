@@ -5,7 +5,7 @@ const {
   squarePromise,
   squarePromiseOrZero,
   switcheroo,
-} = require('../answers/transforming-promises');
+} = require('./answers');
 
 describe('Transforming Promises with .then(cb) and .catch(cb)', () => {
   describe('#mapPromise(promise, transformer) => Promise', () => {

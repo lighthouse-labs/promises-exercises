@@ -6,11 +6,11 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha",
     "start": "./node_modules/.bin/mocha --watch",
-    "making-promises": "npm test -- ./test/making-promises.test.js",
-    "consuming-promises": "npm test -- ./test/consuming-promises.test.js",
-    "transforming-promises": "npm test -- ./test/transforming-promises.test.js",
-    "chaining-promises": "npm test -- ./test/chaining-promises.test.js",
-    "callbacks": "npm test -- ./test/callbacks.test.js"
+    "01-making-promises": "npm test -- ./01-making-promises",
+    "02-consuming-promises": "npm test -- ./02-consuming-promises",
+    "03-transforming-promises": "npm test -- ./03-transforming-promises",
+    "04-chaining-promises": "npm test -- ./04-chaining-promises",
+    "05-callbacks": "npm test -- ./05-callbacks"
   },
   "repository": {
     "type": "git",

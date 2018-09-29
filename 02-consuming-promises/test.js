@@ -3,7 +3,7 @@ const assert = require('assert');
 const {
   waitForPromise,
   consumePromise,
-} = require('../answers/consuming-promises');
+} = require('./answers');
 
 describe('Consuming Promises with .then(cb) and .catch(cb)', () => {
   describe('#waitForPromise(promise, action) => void', () => {

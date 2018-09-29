@@ -4,7 +4,7 @@ const {
   passwordCheckerCb,
   passwordCheckerPrms,
   makePromiseFromFunctionWithCallback,
-} = require('../answers/callbacks');
+} = require('./answers');
 
 /* This test describes the callback version of this function */
 describe('#passwordCheckerCb(email:string, password:string, cb:(User, Error) => void):void', () => {
