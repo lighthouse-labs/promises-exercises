@@ -59,7 +59,7 @@ function squarePromiseOrZero(promise){
  * @returns {Promise}
  */
 function switcheroo(promise){
-  return promise.then(/* IMPLEMENT ME */);
+  return promise.then(res => Promise.reject(res), res2 => Promise.resolve(res2));
 }
 
 /**
