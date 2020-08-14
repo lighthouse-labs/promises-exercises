@@ -37,6 +37,13 @@ function makePromiseRejectWithBoo(){
 
 function makePromiseWithConstructor(itShouldResolve){
   return new Promise((resolve, reject) => {
+    if (itShouldResolve == true) {
+      resolve("truthy")
+    } else {
+      reject("falsy")
+    }
+
+
     /* If itShouldResolve is true, call resolve */
     /* If itShouldResolve is false, call reject */
   });
