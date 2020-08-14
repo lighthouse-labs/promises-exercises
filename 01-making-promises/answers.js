@@ -20,6 +20,10 @@ function makePromiseResolveWith3(){
  * @returns {Promise<,"Boo!">}
  */
 function makePromiseRejectWithBoo(){
+  return new Promise((resolve, reject) => {
+    reject("Boo!")
+
+  })
   /* IMPLEMENT ME! */
 }
 
