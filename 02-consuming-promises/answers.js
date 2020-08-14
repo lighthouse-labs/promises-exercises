@@ -21,6 +21,11 @@ function waitForPromise(promise, action){
  * @param {handler} handler 
  */
 function consumePromise(promise, consumer, handler){
+  promise.then((value) => {
+    return consumer(value)
+  }).catch((error) => {
+    return handler(error)
+  })
   /* IMPLEMENT ME! */
 }
 
