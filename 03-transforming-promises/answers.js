@@ -45,7 +45,11 @@ function squarePromise(numberPromise){
  */
 function squarePromiseOrZero(promise){
   return squarePromise(promise)
-    .catch(/* IMPLEMENT ME! */);
+    .catch(error => {
+      return new Promise((resolve, reject) => {
+        resolve(0)
+      })
+    });
 }
 
 /**
