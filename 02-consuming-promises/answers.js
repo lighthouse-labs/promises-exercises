@@ -7,6 +7,9 @@
  * 
  */
 function waitForPromise(promise, action){
+  return promise.then(() => {
+    action()
+  })
   /* IMPLEMENT ME */
 }
 /**
