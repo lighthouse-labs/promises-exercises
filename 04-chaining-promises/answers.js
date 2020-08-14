@@ -1,10 +1,4 @@
 /**
- * function switcheroo(promise){
- * return promise.then(res => Promise.reject(res), res2 => Promise.resolve(res2));
- * }
- */
-
-/**
  *
  * EXERCISE 1
  *
@@ -31,7 +25,9 @@ function flatMapPromise(promise, asyncTransformer) {
  * @param {function} slowAsyncProcess
  */
 function chainTwoAsyncProcesses(firstPromise, slowAsyncProcess) {
-  return firstPromise.then(/* IMPLEMENT ME! */);
+  return firstPromise.then(res => {
+    return Promise.resolve(slowAsyncProcess(res));
+  })
 }
 
 /**
