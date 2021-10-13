@@ -39,10 +39,10 @@ describe('Promise constructor "new Promise((resolve, reject) => void) => Promise
       return makePromiseWithConstructor(false)
         .then(() => {
           assert.fail('This should have failed.');
-        }, () => {});
+        }, () => { });
     });
   });
-  describe('#makeDelayPromise: (A, number) => Promise<A>', () =>{
+  describe('#makeDelayPromise: (A, number) => Promise<A>', () => {
     it('returns a promise that resolves with the value', () => {
       const start = new Date();
       return makeDelayPromise('Hello', 0)
