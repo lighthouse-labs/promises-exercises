@@ -6,7 +6,7 @@
  * @returns {Promise<3>}
  */
 function makePromiseResolveWith3() {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     resolve(3);
 
   });
@@ -52,7 +52,7 @@ function makePromiseWithConstructor(itShouldResolve) {
  * @return {Promise<any>} - A promise that will resolve with the value after delayInMs milliseconds
  */
 function makeDelayPromise(value, delayInMs) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve(value);
     }, delayInMs);
