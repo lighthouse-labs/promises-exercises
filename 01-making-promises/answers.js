@@ -7,6 +7,10 @@
  */
 function makePromiseResolveWith3(){
   /* IMPLEMENT ME! */
+  const ex1 = new Promise(function(resolve){
+    resolve(3);
+  });
+  return  ex1;
 }
 
 /**
